@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Quyền truy cập Internet và trạng thái mạng để gọi API / ZaloPay / Firebase -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Crowdfunding">
+
+        <!-- 1. Màn hình Đăng nhập (Khởi chạy chính của ứng dụng) -->
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 2. Màn hình Đăng ký tài khoản -->
+        <activity
+            android:name=".ui.auth.RegisterActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- 3. Màn hình Trang chủ (Danh sách chiến dịch dành cho User) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
+        <!-- 4. Màn hình Trang Quản Trị (Dành riêng cho Admin) -->
+        <activity
+            android:name=".admin.AdminDashboardActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- 5. Màn hình Thông tin cá nhân người dùng -->
+        <activity
+            android:name=".UserProfileActivity"
+            android:exported="false" />
+
+        <!-- 6. Màn hình Chi tiết chiến dịch từ thiện -->
+        <activity
+            android:name=".ui.detail.CampaignDetailActivity"
+            android:exported="false" />
+
+        <!-- 7. Màn hình Nhập số tiền & Thanh toán ZaloPay -->
+        <activity
+            android:name=".ui.detail.DonateActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Scheme nhận kết quả trả về từ ứng dụng ZaloPay Sandbox -->
+                <data android:scheme="demozpdk" android:host="app" />
+            </intent-filter>
+        </activity>
+
+        <!-- 8. Màn hình Thông báo thanh toán thành công -->
+        <activity
+            android:name=".ui.detail.DonationSuccessActivity"
+            android:exported="false" />
+
+        <!-- 9. ⚡ Màn hình Hộp Thư Thông Báo từ Admin (Đã thêm mới tại đây) -->
+        <activity
+            android:name=".ui.detail.NotificationActivity"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

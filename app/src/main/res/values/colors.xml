@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Các màu cơ bản -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primaryColor">#1976D2</color>
+    <color name="primary_color">#1976D2</color>
+
+    <!-- Các màu bổ sung cho chi tiết chiến dịch -->
+    <color name="background_light">#F5F5F5</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="green_progress">#4CAF50</color>
+    <color name="surfaceVariant">#E7E0EC</color>
+    <color name="surfaceColor">#FFFFFF</color>
+</resources>
